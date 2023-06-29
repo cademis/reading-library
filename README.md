@@ -25,3 +25,7 @@ Add a button on each exercise’s display to remove the exercise from the log.
 You will need to associate your DOM elements with the actual exercise objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the exercises array.
 
 Note: You are not required to add any type of storage right now. You will have the option to come back to this project later on in the course.
+
+## TODO
+
+- [ ] #todo

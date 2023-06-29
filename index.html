@@ -3,12 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Excercise Library</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <h1>Hello</h1>
+    <h1>Excercise Library</h1>
+    <form id="form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="submitName" />
+      </div>
+      <div>
+        <label for="unit">Unit</label>
+        <input type="text" id="unit" name="unit" />
+      </div>
+      <div>
+        <label for="goal">Goal</label>
+        <input type="text" id="goal" name="goal" />
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Excerice</th>
+          <th>Goal</th>
+        </tr>
+      </thead>
+      <tbody id="myTable"></tbody>
+    </table>
+
     <script src="script.js"></script>
   </body>
 </html>
