@@ -10,73 +10,48 @@ let myExcercises = [
     goal: 60,
   },
   {
-    name: "Bench Press",
+    name: "Squat",
     unit: "kg",
-    goal: 80,
+    goal: 100,
   },
   {
-    name: "Cable Row",
+    name: "Deadlift",
     unit: "kg",
-    goal: 60,
+    goal: 120,
   },
   {
-    name: "Bench Press",
+    name: "Shoulder Press",
     unit: "kg",
-    goal: 80,
+    goal: 50,
   },
   {
-    name: "Cable Row",
+    name: "Bicep Curls",
     unit: "kg",
-    goal: 60,
+    goal: 20,
   },
   {
-    name: "Bench Press",
+    name: "Leg Press",
     unit: "kg",
-    goal: 80,
+    goal: 150,
   },
   {
-    name: "Cable Row",
+    name: "Lat Pulldown",
     unit: "kg",
-    goal: 60,
+    goal: 70,
   },
   {
-    name: "Bench Press",
-    unit: "kg",
-    goal: 80,
+    name: "Push-ups",
+    unit: "reps",
+    goal: 50,
   },
   {
-    name: "Cable Row",
-    unit: "kg",
-    goal: 60,
+    name: "Sit-ups",
+    unit: "reps",
+    goal: 100,
   },
   {
-    name: "Bench Press",
-    unit: "kg",
-    goal: 80,
-  },
-  {
-    name: "Cable Row",
-    unit: "kg",
-    goal: 60,
-  },
-  {
-    name: "Bench Press",
-    unit: "kg",
-    goal: 80,
-  },
-  {
-    name: "Cable Row",
-    unit: "kg",
-    goal: 60,
-  },
-  {
-    name: "Bench Press",
-    unit: "kg",
-    goal: 80,
-  },
-  {
-    name: "Cable Row",
-    unit: "kg",
+    name: "Plank",
+    unit: "seconds",
     goal: 60,
   },
 ];
@@ -118,6 +93,7 @@ function displayExcercises() {
     // Create the delete button
     let deleteButton = document.createElement("button");
     let editButton = document.createElement("button");
+    editButton.classList.add("showEditForm");
 
     deleteButton.innerHTML = "X";
     editButton.innerHTML = "Edit";
@@ -138,13 +114,38 @@ function displayExcercises() {
       displayExcercises();
     });
 
-    // Add an event listener to the delete button
+    let index = myExcercises.indexOf(excercise);
+
+    // Add an event listener to the edit button
     editButton.addEventListener("click", () => {
-      let index = myExcercises.indexOf(excercise);
       console.log(index);
+      if (index > -1) {
+        let editCard = document.getElementById("editCard");
+        console.log(editCard);
+        console.log(myExcercises[index]);
+        let editName = document.getElementById("editName");
+        let editUnit = document.getElementById("editUnit");
+        let editGoal = document.getElementById("editGoal");
+
+        editName.value = myExcercises[index].name;
+        editUnit.value = myExcercises[index].unit;
+        editGoal.value = myExcercises[index].goal;
+        currentIndex.value = index;
+
+        editCard.classList.remove("hidden");
+      }
     });
   });
 }
+
+// add an eventlistenter to the editForm update button
+let editForm = document.querySelector("#editForm");
+editForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (currentIndex.value > -1) {
+    console.log(myExcercises[currentIndex.value]);
+  }
+});
 
 // submit form action
 const formElem = document.querySelector("#form");
@@ -158,6 +159,8 @@ formElem.addEventListener("submit", (e) => {
   addExcercise(newExcercise, myExcercises);
   displayExcercises();
 });
+
+// add event listener to editForm
 
 displayExcercises();
 

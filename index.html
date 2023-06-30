@@ -30,12 +30,36 @@
         </div>
       </form>
     </div>
+    <div id="editCard" class="hidden">
+      <form id="editForm">
+        <div>
+          <label for="editName">Name</label>
+          <input type="text" id="editName" name="editName" value="default" />
+        </div>
+        <div>
+          <label for="editUnit">Unit</label>
+          <input type="text" id="editUnit" name="editUnit" value="default" />
+        </div>
+        <div>
+          <label for="editGoal">Goal</label>
+          <input type="text" id="editGoal" name="editGoal" value="default" />
+        </div>
+        <div class="hidden-div">
+          <label for="currentIndex">Index (do not edit)</label>
+          <input id="currentIndex" type="number" />
+        </div>
+        <div>
+          <button type="submit">Update</button>
+          <button id="hideForm">Close</button>
+        </div>
+      </form>
+    </div>
     <table>
       <thead>
         <tr>
           <th>Excercise</th>
           <th>Goal</th>
-          <th>Delete</th>
+          <th>Modify</th>
         </tr>
       </thead>
       <tbody id="myTable"></tbody>

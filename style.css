@@ -35,19 +35,19 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-#formCard {
+#formCard,
+#editCard {
   display: grid;
   background-color: rgba(0, 0, 0, 0.5);
   justify-items: center;
   position: fixed;
   margin-top: 150px;
   box-sizing: border-box;
-}
-
-#formCard.hidden {
-  display: none;
-}
-
-form {
   color: white;
+}
+
+#editCard.hidden,
+#formCard.hidden,
+.hidden-div {
+  display: none;
 }
