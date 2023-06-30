@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Excercise Library</title>
+    <title>Exercise Library</title>
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <h1>Excercise Library</h1>
+    <h1>Exercise Library</h1>
     <div>
       <input type="text" id="filterInput" placeholder="Filter Table..." />
-      <button id="showForm">Add Excercise</button>
+      <button id="showForm">Add Exercise</button>
     </div>
     <div id="formCard" class="hidden">
       <form id="form">
@@ -34,34 +34,11 @@
         </div>
       </form>
     </div>
-    <div id="editCard" class="hidden">
-      <form id="editForm">
-        <div>
-          <label for="editName">Name</label>
-          <input type="text" id="editName" name="editName" value="default" />
-        </div>
-        <div>
-          <label for="editUnit">Unit</label>
-          <input type="text" id="editUnit" name="editUnit" value="default" />
-        </div>
-        <div>
-          <label for="editGoal">Goal</label>
-          <input type="text" id="editGoal" name="editGoal" value="default" />
-        </div>
-        <div class="hidden-div">
-          <label for="currentIndex">Index (do not edit)</label>
-          <input id="currentIndex" type="number" />
-        </div>
-        <div>
-          <button type="submit">Update</button>
-          <button id="hideEditForm">Cancel</button>
-        </div>
-      </form>
-    </div>
+
     <table>
       <thead>
         <tr>
-          <th>Excercise</th>
+          <th>Exercise</th>
           <th>Goal</th>
           <th>Modify</th>
         </tr>
@@ -69,6 +46,6 @@
       <tbody id="myTable"></tbody>
     </table>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
