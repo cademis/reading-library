@@ -3,34 +3,40 @@ const initialData = [
     name: "Bench Press",
     unit: "kg",
     goal: 80,
+    current: 40,
   },
   {
     name: "Cable Row",
     unit: "kg",
     goal: 60,
+    current: 40,
   },
   {
     name: "Squat",
     unit: "kg",
     goal: 100,
+    current: 40,
   },
   {
     name: "Deadlift",
     unit: "kg",
     goal: 120,
+    current: 40,
   },
   {
     name: "Shoulder Press",
     unit: "kg",
     goal: 50,
+    current: 40,
   },
 ];
 
 class Exercise {
-  constructor(name, unit, goal) {
+  constructor(name, unit, goal, current) {
     this.name = name;
     this.unit = unit;
     this.goal = goal;
+    this.current = current;
   }
 }
 
@@ -57,7 +63,9 @@ class UI {
   constructor(library) {
     this.library = library;
     this.formElem = document.querySelector("#form");
-    this.showFormBtn = document.querySelector("#showForm");
+    this.showFormBtn = document.getElementById("showForm");
+    this.hideFormBtn = document.querySelector("#hideForm");
+    this.formCardElem = document.getElementById("formCard");
     this.filterInput = document.querySelector("#filterInput");
     this.setupEventlisteners();
   }
@@ -68,12 +76,27 @@ class UI {
       const nameInput = this.formElem.querySelector("#name").value;
       const unitInput = this.formElem.querySelector("#unit").value;
       const goalInput = this.formElem.querySelector("#goal").value;
-      const newExercise = new Exercise(nameInput, unitInput, goalInput);
+      const currentInput = this.formElem.querySelector("#current").value;
+      const newExercise = new Exercise(
+        nameInput,
+        unitInput,
+        goalInput,
+        currentInput
+      );
       this.library.addExercise(newExercise);
+      this.formCardElem.classList.add("hidden");
       this.updateDisplay();
     });
 
     this.filterInput.addEventListener("keyup", this.filterTable.bind(this));
+
+    this.showFormBtn.addEventListener("click", () => {
+      this.formCardElem.classList.remove("hidden");
+    });
+
+    this.hideFormBtn.addEventListener("click", () => {
+      this.formCardElem.classList.add("hidden");
+    });
   }
 
   updateDisplay() {
@@ -84,14 +107,25 @@ class UI {
       let col1 = document.createElement("td");
       let col2 = document.createElement("td");
       let col3 = document.createElement("td");
+      let col4 = document.createElement("td");
       col1.innerText = `${exercise.name}`;
       col2.innerText = `${exercise.goal}${exercise.unit}`;
       let deleteButton = document.createElement("button");
       deleteButton.innerHTML = "X";
       col3.appendChild(deleteButton);
+      let decreaseButton = document.createElement("button");
+      let text = document.createElement("span");
+      let increaseButton = document.createElement("button");
+      decreaseButton.innerHTML = "<";
+      text.innerHTML = `${exercise.current}`;
+      increaseButton.innerHTML = ">";
+      col4.appendChild(decreaseButton);
+      col4.appendChild(text);
+      col4.appendChild(increaseButton);
       row.appendChild(col1);
       row.appendChild(col2);
       row.appendChild(col3);
+      row.appendChild(col4);
       myTable.appendChild(row);
       deleteButton.addEventListener("click", () => {
         this.library.removeExercise(index);
@@ -122,7 +156,7 @@ class UI {
 const newLibrary = new ExerciseLibrary();
 
 initialData.forEach((data) => {
-  const exercise = new Exercise(data.name, data.unit, data.goal);
+  const exercise = new Exercise(data.name, data.unit, data.goal, data.current);
   newLibrary.addExercise(exercise);
 });
 

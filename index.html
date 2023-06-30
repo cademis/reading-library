@@ -12,7 +12,7 @@
     <h1>Exercise Library</h1>
     <div>
       <input type="text" id="filterInput" placeholder="Filter Table..." />
-      <button id="showForm">Add Exercise</button>
+      <button type="button" id="showForm">Add Exercise</button>
     </div>
     <div id="formCard" class="hidden">
       <form id="form">
@@ -29,8 +29,12 @@
           <input type="text" id="goal" name="goal" />
         </div>
         <div>
+          <label for="current">Current Progress</label>
+          <input type="text" id="current" name="current" />
+        </div>
+        <div>
           <button type="submit">Submit</button>
-          <button id="hideForm">Cancel</button>
+          <button type="button" id="hideForm">Cancel</button>
         </div>
       </form>
     </div>
@@ -40,7 +44,8 @@
         <tr>
           <th>Exercise</th>
           <th>Goal</th>
-          <th>Modify</th>
+          <th>Remove</th>
+          <th>Progress</th>
         </tr>
       </thead>
       <tbody id="myTable"></tbody>
