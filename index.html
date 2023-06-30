@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Excercise Library</title>
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <h1>Excercise Library</h1>
-    <button id="showForm">Add Excercise</button>
+    <div>
+      <input type="text" id="filterInput" placeholder="Filter Table..." />
+      <button id="showForm">Add Excercise</button>
+    </div>
     <div id="formCard" class="hidden">
       <form id="form">
         <div>
@@ -26,7 +30,7 @@
         </div>
         <div>
           <button type="submit">Submit</button>
-          <button id="hideForm">Close</button>
+          <button id="hideForm">Cancel</button>
         </div>
       </form>
     </div>
@@ -50,7 +54,7 @@
         </div>
         <div>
           <button type="submit">Update</button>
-          <button id="hideForm">Close</button>
+          <button id="hideEditForm">Cancel</button>
         </div>
       </form>
     </div>
