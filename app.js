@@ -57,6 +57,14 @@ class ExerciseLibrary {
   editExercise(index, exercise) {
     this.exercises[index] = exercise;
   }
+
+  incrementProgressUp(index) {
+    this.exercises[index].current = this.exercises[index].current + 5;
+  }
+
+  incrementProgressDown(index) {
+    this.exercises[index].current = this.exercises[index].current - 5;
+  }
 }
 
 class UI {
@@ -116,8 +124,10 @@ class UI {
       let decreaseButton = document.createElement("button");
       let text = document.createElement("span");
       let increaseButton = document.createElement("button");
+      decreaseButton.classList.add("decrease");
       decreaseButton.innerHTML = "<";
       text.innerHTML = `${exercise.current}`;
+      increaseButton.classList.add("increase");
       increaseButton.innerHTML = ">";
       col4.appendChild(decreaseButton);
       col4.appendChild(text);
@@ -129,6 +139,14 @@ class UI {
       myTable.appendChild(row);
       deleteButton.addEventListener("click", () => {
         this.library.removeExercise(index);
+        this.updateDisplay();
+      });
+      increaseButton.addEventListener("click", () => {
+        this.library.incrementProgressUp(index);
+        this.updateDisplay();
+      });
+      decreaseButton.addEventListener("click", () => {
+        this.library.incrementProgressDown(index);
         this.updateDisplay();
       });
     });
