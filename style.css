@@ -1,29 +1,50 @@
 /* style the table #todo */
 
 body {
+  font-family: Arial, sans-serif;
   display: grid;
   width: 100vw;
   justify-items: center;
   align-items: start;
   justify-content: center;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+  gap: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  color: #333;
 }
 
 form {
   width: 200px;
   display: grid;
-  gap: 10px;
+  /* gap: 10px; */
+  /* margin: 20px; */
+  background: #fff;
+  padding: 20px;
   margin: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  justify-items: center;
+  justify-content: center;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
+  background: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 th,
 td {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: left;
+  padding: 10px;
   text-align: left;
 }
 
@@ -35,14 +56,31 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+}
+
+table button {
+  margin: 2px;
+  width: 25px;
+  background: #dc3545;
+  border: none;
+  cursor: pointer;
+}
+
 #formCard {
   display: grid;
-  background-color: rgba(0, 0, 0, 0.5);
+
+  /* background-color: rgba(0, 0, 0, 0.5); */
   justify-items: center;
   position: fixed;
-  margin-top: 150px;
+  margin-top: 120px;
+  width: 100%;
   box-sizing: border-box;
-  color: white;
 }
 
 #formCard.hidden {
