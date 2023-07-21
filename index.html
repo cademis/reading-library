@@ -11,7 +11,12 @@
   <body>
     <h1>Exercise Library</h1>
     <div>
-      <input type="text" id="filterInput" placeholder="Filter Table..." />
+      <input
+        type="text"
+        id="filterInput"
+        placeholder="Filter Table..."
+        pattern="[A-Za-z]+"
+      />
       <button type="button" id="showForm">Add Exercise</button>
     </div>
     <div id="formCard" class="hidden">

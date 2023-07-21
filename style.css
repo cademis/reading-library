@@ -86,3 +86,7 @@ table button {
 #formCard.hidden {
   display: none;
 }
+
+input:invalid {
+  background-color: #dc3545;
+}
